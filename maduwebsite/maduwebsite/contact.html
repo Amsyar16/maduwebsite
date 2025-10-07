@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us-BeeWell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .whatsapp-float  {
+            position: fixed;
+            background-color: #ffd700;
+            width: 80px;
+            height: 80px;
+            bottom: 25px;
+            right: 25px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px 0 rgba(40, 167, 69, 0.2);
+            z-index: 1001;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite; 
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('whatsapp.png');
+            background-size: 55px 55px;
+            background-repeat: no-repeat;
+            background-position: center center ;
+            z-index: 2;
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            position: fixed; /* Fixed position on the screen */
+            bottom: 130px; /* Distance from the bottom */
+            right: 30px; /* Distance from the right */
+            z-index: 99; /* Ensures it's on top of other elements */
+            border: none;
+            outline: none;
+            background-color: #777; /* Example background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+            padding: 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            opacity: 0.6; /* Slightly transparent */
+            transition: opacity 0.3s; /* Smooth transition for opacity */
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #ffd700; /* Darker background on hover */
+        }
+
+
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #f39c12;
+            background: rgba(243, 156, 18, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 3rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .contact-info h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            width: 60px;
+            text-align: center;
+        }
+
+        .contact-details h3 {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f39c12;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #f39c12;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Business Hours */
+        .business-hours {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .business-hours h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hours-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hours-item h3 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: #f8f9fa;
+        }
+
+        .social-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            background: #f39c12;
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: #e67e22;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 3rem 0;
+        }
+
+        .map-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .map-placeholder {
+            width: 1010px;
+            height: 405px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            border: 2px dashed #dee2e6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f39c12;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            text-align: center;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png"   alt="BeeWell Logo" style="height:90px; vertical-align: middle;"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+             <!-- WhatsApp Floating Button -->
+    <a href="http://wa.me/60105443750" class="whatsapp-float" target="_blank" title="Contact us on WhatsApp" >
+    </a>
+
+        <!-- Scroll to Top Button Functionality -->
+    <script> 
+    function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+
+        <!-- Scroll to Top Button -->
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">⇧</button>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>📞 Get In Touch</h1>
+                <p>We'd love to hear from you! Whether you have questions about our products, need help with an order, or want to learn more about our beekeeping practices, we're here to help.</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>info@BeeWell.com</p>
+                            <p>support@BeeWell.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+603-546-9172 - HQ</p>
+                            <p>+60 105443750 - WhatsApp Business</p>
+                        </div>
+                    </div>
+
+
+                    
+                        <a href="#map-section" style="text-decoration: none; color: inherit;"></a>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Visit Us</h3>
+                            <p>First Cafe UIS</p>
+                            <p>Bandar Seri Putra, 43000 Kajang</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+                            <p>Sat-Sun: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="product-inquiry">Product Inquiry</option>
+                            <option value="order-support">Order Support</option>
+                            <option value="wholesale">Wholesale Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Business Hours Section -->
+    <section class="business-hours">
+        <div class="container">
+            <h2>🕒 When to Reach Us</h2>
+            <div class="hours-grid">
+                <div class="hours-item">
+                    <h3>Customer Support</h3>
+                    <p>Monday - Friday<br>9:00 AM - 6:00 PM</p>
+                    <p>Saturday - Sunday<br>10:00 AM - 4:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h3>Farm Visits</h3>
+                    <p>Saturday Only<br>By Appointment</p>
+                    <p>Call ahead to schedule<br>your beekeeping tour!</p>
+                </div>
+                <div class="hours-item">
+                    <h3>Emergency Support</h3>
+                    <p>24/7 Email Support</p>
+                    <p>We'll respond within<br>24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <h2>📱 Follow Us On Social Media</h2>
+            <p>Stay connected with us for honey tips, recipes, and behind-the-scenes content from our bee farms!</p>
+            
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="icon">📘</div>
+                    <h3>Facebook</h3>
+                    <p>Daily updates, customer stories, and honey recipes</p>
+                    <a href="https://facebook.com/puregoldhoney" target="_blank" class="social-link">Follow Us</a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p>Beautiful photos of our bees, farms, and products</p>
+                    <a href="https://www.instagram.com/beewell.official" target="_blank" class="social-link">Follow Us</a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="icon">🎵</div>
+                    <h3>TikTok</h3>
+                    <p>Fun videos about beekeeping and honey facts</p>
+                    <a href="https://tiktok.com/@puregoldhoney" target="_blank" class="social-link">Follow Us</a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="icon">🐦</div>
+                    <h3>X</h3>
+                    <p>Latest news, promotions, and quick honey tips</p>
+                    <a href="https://twitter.com/BeeWell_Honey" target="_blank" class="social-link">Follow Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>🗺️ Find Our Location</h2>
+            <div class="map-placeholder">
+                <div style="text-align: center;">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127582.35095891291!2d102.16625369726562!3d2.173286200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1ed2a88349113%3A0x6f15c1d3662e34d5!2sMadu%20Tualang%20Asli%20Quadmeds!5e0!3m2!1sen!2smy!4v1757343356413!5m2!1sen!2smy" width="1010" height="405" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html"><img src="logo.png"   alt="BeeWell Logo" style="height:90px; vertical-align: middle;"></a>
+                    <p>Your trusted source for premium, raw honey products. Bringing nature's sweetness to your healthy lifestyle since 2025.</p>
+                    <p style="margin-top: 1rem;">Made with 🍯 and ❤️</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="benefits.html">Health Benefits</a></p>
+                    <p><a href="products.html">Our Products</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <p><a href="contact.html">Contact Us</a></p>
+                    <p><a href="#">Shipping Information</a></p>
+                    <p><a href="#">Returns & Exchanges</a></p>
+                    <p><a href="#">Frequently Asked Questions</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Get In Touch</h3>
+                    <p>📧 info@BeeWell.com</p>
+                    <p>📱 +60 105443750 -BeeWell</p>
+                    <p>📍 First Cafe UIS, Bandar Seri Putra, 43000 Kajang</p>
+                    <p>⏰ Mon-Fri: 9AM-6PM</p>
+                    <p>⏰ Sat-Sun: 10AM-4PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BeeWell. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script> 
+    function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>   
+
+        <!-- Scroll to Top Button -->
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">⇧</button>
+
+
+
+        <section class="map-section" id="map-section">
+</section>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+
+    <script>
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Add some interactive effects
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 5px 15px rgba(243, 156, 18, 0.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

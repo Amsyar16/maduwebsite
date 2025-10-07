@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - BeeWell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              honey: {
+                50: "#fffdf7",
+                100: "#fffbeb",
+                200: "#fef3c7",
+                300: "#fde68a",
+                400: "#fcd34d",
+                500: "#f59e0b",
+                600: "#d97706",
+                700: "#b45309",
+                800: "#92400e",
+                900: "#78350f",
+              },
+            },
+          },
+        },
+      };
+    </script> 
+  </head>
+
+  <body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+         <div class="flex items-center justify-between h-20"></div>
+        <div class="flex-shrink-0">
+          <a href="index.html">
+            <img src="logo.png" alt="BeeWell Logo" class="h-16">
+          </a>
+        </div>
+
+        <!-- Navigation -->
+          <nav>
+            <div class="hidden md:block">
+              <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="checkout.html" class="active">Checkout</a></li>
+              </ul>
+            </div>
+          </nav>
+        <!-- Right Section -->
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600 text-sm hidden sm:block">Secure Checkout</span>
+          <div class="flex space-x-2">
+            <div class="w-3 h-3 bg-honey-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-honey-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main content wrapper -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Product List Section -->
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Your Order</h2>
+
+            <!-- Product Items -->
+            <div class="space-y-4">
+              <!-- Product 1 -->
+              <div
+                class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-honey-300 transition-colors"
+              >
+                <div class="flex items-center space-x-4">
+                  <div class="product-image">
+                        <img src="maduTualang.png" alt="Madu tualang" style="height:90px; width: 90px;">
+                    </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900">
+                      Sunflower Honey
+                    </h3>
+                    <p class="text-sm text-gray-600">750g Family Size Glass Jar</p>
+                    <p class="text-xs text-green-600">✓ In Stock</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="flex items-center border border-gray-300 rounded-md"
+                  >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="decrease"
+                      data-product="1"
+                    >
+                      -
+                    </button>
+                    <span
+                      class="px-3 py-1 border-l border-r border-gray-300 quantity-display"
+                      data-product="1"
+                      >2</span
+                    >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="increase"
+                      data-product="1"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="text-right">
+                    <p
+                      class="font-semibold text-gray-900 product-price"
+                      data-price="59.99"
+                      data-product="1"
+                    >
+                      RM49.98
+                    </p>
+                    <p class="text-sm text-gray-500">RM59.99 each</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 2 -->
+              <div
+                class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-honey-300 transition-colors"
+              >
+                <div class="flex items-center space-x-4">
+                  <div class="product-image">
+                        <img src="madumanukaBwell.png" alt="Madu Sidhir" style="height: 90px; width: 90px;">
+                    </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900">
+                      Manuka Honey UMF 15+
+                    </h3>
+                    <p class="text-sm text-gray-600">250g Premium Jar</p>
+                    <p class="text-xs text-green-600">✓ In Stock</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="flex items-center border border-gray-300 rounded-md"
+                  >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="decrease"
+                      data-product="2"
+                    >
+                      -
+                    </button>
+                    <span
+                      class="px-3 py-1 border-l border-r border-gray-300 quantity-display"
+                      data-product="2"
+                      >1</span
+                    >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="increase"
+                      data-product="2"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="text-right">
+                    <p
+                      class="font-semibold text-gray-900 product-price"
+                      data-price="49.99"
+                      data-product="2"
+                    >
+                      RM49.99
+                    </p>
+                    <p class="text-sm text-gray-500">RM49.99 each</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 3 -->
+              <div
+                class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-honey-300 transition-colors"
+              >
+              <div class="flex items-center space-x-4">
+               <div class="product-image">
+                        <img src="honeyFacemas.png" alt="face mask" style="height:90px; width: 90px;" >
+                    </div>
+
+                  <div>
+                    <h3 class="font-semibold text-gray-900">
+                      Honey Face Mask
+                    </h3>
+                    <p class="text-sm text-gray-600">200ml Tube</p>
+                    <p class="text-xs text-green-600">✓ In Stock</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="flex items-center border border-gray-300 rounded-md"
+                  >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="decrease"
+                      data-product="3"
+                    >
+                      -
+                    </button>
+                    <span
+                      class="px-3 py-1 border-l border-r border-gray-300 quantity-display"
+                      data-product="3"
+                      >1</span
+                    >
+                    <button
+                      class="px-3 py-1 text-gray-600 hover:text-gray-800 quantity-btn"
+                      data-action="increase"
+                      data-product="3"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="text-right">
+                    <p
+                      class="font-semibold text-gray-900 product-price"
+                      data-price="39.99"
+                      data-product="3"
+                    >
+                      RM39.99
+                    </p>
+                    <p class="text-sm text-gray-500">RM39.99 each</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            
+
+            <!-- Promo Code Section -->
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+              <div class="flex space-x-3">
+                <input
+                  type="text"
+                  placeholder="Enter promo code"
+                  class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-honey-500 focus:border-transparent"
+                />
+                <button
+                  class="px-6 py-2 bg-honey-600 text-white rounded-md hover:bg-honey-700 transition-colors"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+        <!-- Order Summary & Payment -->
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-lg shadow-md p-6 sticky top-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Order Summary</h3>
+
+            <!-- Summary Details -->
+            <div class="space-y-3 mb-6">
+              <div class="flex justify-between text-gray-600">
+                <span>Subtotal (<span id="total-items">4</span> items)</span>
+                <span id="subtotal">RM129.96</span>
+              </div>
+              <div class="flex justify-between text-gray-600">
+                <span>Shipping</span>
+                <span class="text-green-600">Free</span>
+              </div>
+              <div class="flex justify-between text-gray-600">
+                <span>Tax</span>
+                <span id="tax">RM10.40</span>
+              </div>
+              <div class="border-t pt-3">
+                <div
+                  class="flex justify-between text-lg font-bold text-gray-900"
+                >
+                  <span>Total</span>
+                  <span id="final-total">RM140.36</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Info -->
+            <div
+              class="mb-6 p-4 bg-green-50 rounded-lg border border-green-200"
+            >
+              <div class="flex items-center text-green-800">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm font-medium"
+                  >Free shipping on orders over RM 100!</span
+                >
+              </div>
+              <p class="text-sm text-green-700 mt-1">
+                Estimated delivery: 3-5 business days
+              </p>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Payment Methods</h4>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  class="payment-method p-3 border-2 border-honey-500 bg-honey-50 rounded-lg text-center transition-all hover:bg-honey-100"
+                >
+                  <div class="text-2xl mb-1">💳</div>
+                  <div class="text-xs font-medium text-honey-800">
+                    Credit Card
+                  </div>
+                </button>
+                <button
+                  class="payment-method p-3 border-2 border-gray-200 rounded-lg text-center transition-all hover:border-honey-300 hover:bg-honey-50"
+                >
+                  <div class="text-2xl mb-1">📱</div>
+                  <div class="text-xs font-medium text-gray-700">PayPal</div>
+                </button>
+                <button
+                  class="payment-method p-3 border-2 border-gray-200 rounded-lg text-center transition-all hover:border-honey-300 hover:bg-honey-50"
+                >
+                  <div class="text-2xl mb-1">🍎</div>
+                  <div class="text-xs font-medium text-gray-700">Apple Pay</div>
+                </button>
+                <button
+                  class="payment-method p-3 border-2 border-gray-200 rounded-lg text-center transition-all hover:border-honey-300 hover:bg-honey-50"
+                >
+                  <div class="text-2xl mb-1">🔒</div>
+                  <div class="text-xs font-medium text-gray-700">Stripe</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Proceed to Payment Button -->
+            <button
+              id="proceed-payment"
+              class="w-full bg-honey-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-honey-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Proceed to Payment Gateway
+              <div class="text-sm font-normal mt-1">Secure SSL Encryption</div>
+            </button>
+
+            <!-- Security Badges -->
+            <div
+              class="mt-4 flex justify-center space-x-4 text-xs text-gray-500"
+            >
+              <div class="flex items-center">
+                <span class="mr-1">🔒</span>
+                SSL Secure
+              </div>
+              <div class="flex items-center">
+                <span class="mr-1">🛡️</span>
+                Safe Payment
+              </div>
+              <div class="flex items-center">
+                <span class="mr-1">✅</span>
+                Verified
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Gateway Modal (Hidden by default) -->
+    <div
+      id="payment-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Payment Gateway</h3>
+        <div class="text-center py-8">
+          <div
+            class="animate-spin w-12 h-12 border-4 border-honey-500 border-t-transparent rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-gray-600">Redirecting to secure payment gateway...</p>
+          <p class="text-sm text-gray-500 mt-2">
+            Please wait while we process your request
+          </p>
+        </div>
+        <div class="mt-6 flex space-x-3">
+          <button
+            id="close-modal"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            class="flex-1 px-4 py-2 bg-honey-600 text-white rounded-md hover:bg-honey-700 transition-colors"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- styles and scripts -->
+    <style>
+      
+/*  Navbar Layout */
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center logo + links vertically */
+}
+
+.logo img {
+  height: 90px; /* adjust logo size */
+  display: block;
+}
+
+/* Ensure nav links align horizontally */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  size-adjust: auto;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f39c12;
+  background: rgba(243, 156, 18, 0.1);
+}
+
+.product-image {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    font-family: sans-serif;
+  }
+
+  /* Background layer */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('honeycmb.png'); /* your background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(10px); /* blur only background */
+    z-index: -1; /* put behind the content */  }
+
+      
+    </style>
+
+    <script>
+
+      // Helper: format to Malaysian Ringgit
+      function formatMYR(amount) {
+        return new Intl.NumberFormat("ms-MY", {
+          style: "currency",
+          currency: "MYR",
+          minimumFractionDigits: 2,
+        }).format(amount);
+      }
+
+      // Calculate totals
+      function calculateTotals() {
+        let subtotal = 0;
+        let totalItems = 0;
+
+        document.querySelectorAll(".product-price").forEach((priceElement) => {
+          const productId = priceElement.getAttribute("data-product");
+          const unitPrice = parseFloat(priceElement.getAttribute("data-price"));
+          const quantity = parseInt(
+            document.querySelector(
+              `.quantity-display[data-product="${productId}"]`
+            ).textContent
+          );
+
+          const productTotal = unitPrice * quantity;
+          priceElement.textContent = formatMYR(productTotal);
+
+          subtotal += productTotal;
+          totalItems += quantity;
+        });
+
+        const tax = subtotal * 0.08; // 8% tax
+        const finalTotal = subtotal + tax;
+
+        document.getElementById("subtotal").textContent = formatMYR(subtotal);
+        document.getElementById("tax").textContent = formatMYR(tax);
+        document.getElementById("final-total").textContent = formatMYR(finalTotal);
+        document.getElementById("total-items").textContent = totalItems;
+      }
+      // Quantity buttons functionality
+      document.querySelectorAll(".quantity-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+          const action = this.getAttribute("data-action");
+          const productId = this.getAttribute("data-product");
+          const quantityDisplay = document.querySelector(
+            `.quantity-display[data-product="${productId}"]`
+          );
+          let currentQuantity = parseInt(quantityDisplay.textContent);
+
+          if (action === "increase") {
+            currentQuantity++;
+          } else if (action === "decrease" && currentQuantity > 1) {
+            currentQuantity--;
+          }
+
+          quantityDisplay.textContent = currentQuantity;
+          calculateTotals();
+        });
+      });
+
+      // Payment method selection
+      document.querySelectorAll(".payment-method").forEach((method) => {
+        method.addEventListener("click", function () {
+          // Remove active class from all methods
+          document.querySelectorAll(".payment-method").forEach((m) => {
+            m.classList.remove("border-honey-500", "bg-honey-50");
+            m.classList.add("border-gray-200");
+          });
+
+          // Add active class to clicked method
+          this.classList.remove("border-gray-200");
+          this.classList.add("border-honey-500", "bg-honey-50");
+        });
+      });
+
+      // Proceed to payment
+      document
+        .getElementById("proceed-payment")
+        .addEventListener("click", function () {
+          document.getElementById("payment-modal").classList.remove("hidden");
+          document.getElementById("payment-modal").classList.add("flex");
+
+          // Simulate payment gateway redirect
+          setTimeout(() => {
+            alert(
+              "Redirecting to payment gateway...\n\nThis would normally redirect to:\n• Stripe Checkout\n• PayPal\n• Square\n• etc."
+            );
+            document.getElementById("payment-modal").classList.add("hidden");
+            document.getElementById("payment-modal").classList.remove("flex");
+          }, 3000);
+        });
+
+      // Close modal
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", function () {
+          document.getElementById("payment-modal").classList.add("hidden");
+          document.getElementById("payment-modal").classList.remove("flex");
+        });
+
+      // Initialize calculations
+      calculateTotals();
+    </script>
+  </body>
+</html>
